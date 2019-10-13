@@ -45,12 +45,13 @@ most of the things I poke fun at in this doc.
 
 ## Packet Format
 ADB packets:
-> unsigned command;       /* command identifier constant        */  
-  unsigned arg1;          /* first argument                   */  
-  unsigned arg2;          /* second argument                  */  
-  unsigned data_length;   /* length of payload (0 is allowed) */  
-  unsigned data_crc32;    /* crc32 of data payload            */  
-  unsigned magic;         /* command ^ 0xffffffff             */
+
+    unsigned command;       /* command identifier constant        */  
+    unsigned arg1;          /* first argument                   */  
+    unsigned arg2;          /* second argument                  */  
+    unsigned data_length;   /* length of payload (0 is allowed) */  
+    unsigned data_crc32;    /* crc32 of data payload            */  
+    unsigned magic;         /* command ^ 0xffffffff             */
 
 Having different possible meanings for the value of `arg1` and `arg2` based on what type of 
 `command` we're sending can be confusing. It also means that any error messages are passed 
